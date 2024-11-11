@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <title>Zoom Out</title>
+    <script src="script.js"></script>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFA629;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            transition: transform 0.3s ease-out;
+        }
+
+        .logo:hover {
+            transform: scale(0.8);
+        }
+
+        /* Título centralizado */
+        h1 {
+            font-size: 36px;
+            color: white;
+            margin-left: 20px;
+            font-family: Arial, sans-serif;
+            transition: transform 0.3s ease-out;
+        }
+
+        h1:hover {
+            transform: scale(0.8);
+        }
+
+        /* Estilos para a caixa de notícias */
+        #newsBox {
+            display: none;
+            position: absolute;
+            border: none;
+            background: #FFA629;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 250px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: white;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+
+        #newsBox a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #newsBox a:hover {
+            text-decoration: underline;
+        }
+
+        /* Botão de modo escuro */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dark-mode-toggle img {
+            width: 40px; /* Ajuste o tamanho do ícone */
+            height: 40px; /* Ajuste o tamanho do ícone */
+        }
+
+        /* Modo escuro */
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        body.dark-mode header {
+            background-color: #cc7a00;
+        }
+
+        /* Rodapé centralizado */
+        footer {
+            width: 100%;
+            text-align: center;
+            background-color: #FFA629;
+            padding: 15px;
+            font-size: 12px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="icon-bg.png" alt="Logo" class="logo">
+        <h1>Zoom Out</h1>
+    </header>
+
+    <main>
+        <object id="svgMap" type="image/svg+xml" data="world.svg"></object>
+        <div id="newsBox"></div>
+    </main>
+
+    <!-- Botão de alternância de modo escuro -->
+    <button id="dark-mode-toggle" class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <img src="lua.png" alt="Modo Escuro">
+    </button>
+
+    <footer>
+        Copyright Zoom-Out Inc. All Rights Reserved For Zoom-Out Incorporation
+        <br>
+        Credits: CEO-Davi Peixoto Vasconcelos, CTO-Marcelo Ricardo
+        <br>
+        Design: Marcelo Ricardo, Code: Davi Peixoto Vasconcelos (CODE NAME: SARD), Marketing: Davi Peixoto Vasconcelos And Marcelo Ricardo
+    </footer>
+
+    <script>
+        // Função para alternar entre o modo escuro e claro
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('.dark-mode-toggle img');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+
+            // Mudar o ícone e o texto com base no estado do modo
+            if (isDarkMode) {
+                icon.src = 'lua.png'; // Mantenha o ícone da lua no modo escuro
+                icon.alt = 'Modo Claro'; // Texto alternativo no modo escuro
+            } else {
+                icon.alt = 'Modo Escuro'; // Texto alternativo no modo claro
+            }
+        }
+    </script>
+
+</body>
+</html>
