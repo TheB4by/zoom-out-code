@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Função para buscar notícias de fontes específicas
 async function fetchNewsFromSource(countryId, countryName, newsBox, event) {
-    const apiKey = "2777ac59cc1842359659b52fddb6cf39";
+    const apiKey = "0da129baeae34a079fdc50b8f48502d4";
 
     // Mapeando fontes específicas de notícias por país
     const sourcesByCountry = {
